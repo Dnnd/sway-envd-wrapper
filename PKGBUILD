@@ -1,23 +1,16 @@
 # Maintainer: Danila Maslennikov <d.v.maslennikov@outlook.com>
 pkgname=sway-envd
 pkgver=1.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Wrapper to load env variables in sway session"
 arch=("any")
 url="https://github.com/Dnnd/sway-envd-wrapper"
 license=('MIT')
-groups=()
-depends=()
-makedepends=('sway')
+depends=('sway')
 provides=("${pkgname%}")
 conflicts=("${pkgname%}")
-replaces=()
-backup=()
-options=()
-install=
 source=("sway-envd-wrapper"
 	"sway-envd.desktop")
-noextract=()
 md5sums=('SKIP'
 	 'SKIP')
 
