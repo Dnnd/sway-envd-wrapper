@@ -1,5 +1,5 @@
 # Maintainer: Danila Maslennikov <d.v.maslennikov@outlook.com>
-pkgname=sway-envd-git
+pkgname=sway-envd
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="Wrapper to load env variables in sway session"
@@ -8,24 +8,20 @@ url="https://github.com/Dnnd/sway-envd-wrapper"
 license=('MIT')
 groups=()
 depends=()
-makedepends=('git')
-provides=("${pkgname%-git}")
-conflicts=("${pkgname%-git}")
+makedepends=('sway')
+provides=("${pkgname%}")
+conflicts=("${pkgname%}")
 replaces=()
 backup=()
 options=()
 install=
-source=('git+https://github.com/Dnnd/sway-envd-wrapper.git')
+source=("sway-envd-wrapper"
+	"sway-envd.desktop")
 noextract=()
-md5sums=('SKIP')
-
-pkgver() {
-	cd "$srcdir/${pkgname%-git}"
-	git describe --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g'
-}
+md5sums=('SKIP'
+	 'SKIP')
 
 package() {
-	cd "$srcdir/${pkgname%-git}"
-	install -Dm755 $srcdir/sway-envd-wrapper $pkgdir/usr/bin/sway-envd-wrapper
-	install -Dm644 $srcdir/sway-envd.desktop $pkgdir/usr/share/wayland-sessions/sway-envd.desktop
+	install -Dm755 "$srcdir/sway-envd-wrapper" "$pkgdir/usr/bin/sway-envd-wrapper"
+	install -Dm644 "$srcdir/sway-envd.desktop" "$pkgdir/usr/share/wayland-sessions/sway-envd.desktop"
 }
