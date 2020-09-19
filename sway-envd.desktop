@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Sway-Envd
+Comment=An i3-compatible Wayland compositor with sway-envd patch
+Exec=sway-envd-wrapper
+Type=Application
