@@ -17,5 +17,5 @@ if [ -d "$SWAYENVD" ]; then
 fi
 unset conf
 set +a
-cat "$SWAYENVD/*.conf" | xargs systemctl --user set-environment
+cat "$(ls $SWAYENVD/*.conf)" | xargs systemctl --user set-environment
 exec sway "$@"

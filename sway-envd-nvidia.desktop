@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Sway-Envd (Nvidia)
+Comment=An i3-compatible Wayland compositor with sway-envd patch
+Exec=sway-envd-wrapper --my-next-gpu-wont-be-nvidia
+Type=Application
