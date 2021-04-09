@@ -1,21 +1,4 @@
 #!/bin/sh
-ENVIRONMENTD="$HOME/.config/environment.d"
 SWAYENVD="$HOME/.config/sway/environment.d"
-set -a
-if [ -d "$ENVIRONMENTD" ]; then
-    for conf in $(ls "$ENVIRONMENTD"/*.conf)
-    do
-        . "$conf"
-    done
-
-fi
-if [ -d "$SWAYENVD" ]; then
-    for conf in $(ls "$SWAYENVD"/*.conf)
-    do
-        . "$conf"
-    done
-fi
-unset conf
-set +a
-cat "$(ls $SWAYENVD/*.conf)" | xargs systemctl --user set-environment
+source envd "$SWAYENVD"
 exec sway "$@"
